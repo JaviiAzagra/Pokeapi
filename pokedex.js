@@ -8,12 +8,30 @@ function getAllPokemons() {
     .then((response) => response.results)
     .catch((error) => console.log("Error obteniendo todos los pokemos", error));
 }
-function getOnePokemon(url) {
+/* function getOnePokemon(url) {
   return fetch(url)
     .then((response) => response.json())
     .then((response) => response)
     .catch((error) => console.log("Error obteniendo pokemon individual", error));
-}
+} */
+
+const getOnePokemon = async (url) => {
+  try {
+    const response = await fetch(url);
+    const result = await response.json();
+
+    const pokemon = {
+      name: result.name,
+      id: result.id,
+      types: result.types.map((element) => element.type.name),
+      image: result.sprites.front_default,
+    };
+
+    return pokemon;
+  } catch (error) {
+    console.log("Error obteniendo pokemon " + url, error);
+  }
+};
 
 const input$$ = document.createElement("input");
 input$$.classList.add("search_input");
@@ -26,7 +44,6 @@ const renderSearch = (pokemons) => {
   const divFinder$$ = document.createElement("div");
   const p$$ = document.createElement("p");
 
-  divFinder$$.classList.add("divFinder");
   input$$.setAttribute("type", "text");
   input$$.placeholder = "Búsqueda por Nombre, ID y tipo";
   divFinder$$.appendChild(p$$);
@@ -36,22 +53,32 @@ const renderSearch = (pokemons) => {
 };
 
 const search = (event) => {
-  const input = event.target.value.toLowerCase();
+  const busqueda = event.target.value;
   FILTERED_POKEMONS = ALL_POKEMONS_INFO.filter((poke) => {
-    const Name = poke.name.toLowerCase().includes(input);
-    const Type = poke.types[0].type.name.toLowerCase().includes(input);
-    const Id = poke.id === Number(input)
+    const Name = poke.name.includes(busqueda);
+    const Type = poke.types.includes(busqueda);
+    const Id = poke.id === Number(busqueda)
     return Name || Type || Id
   });
   renderPokemons(FILTERED_POKEMONS);
 };
 
-/* const renderTypes = (types, container) => {
-  
-  types.forEach(type => {
-    
-  });
-} */
+
+//Mostrar el segundo typo del pokemon
+const renderTypes = (type, container) => {
+  const div$$ = document.createElement("div");
+  div$$.classList.add("card-subtitle");
+
+  type.forEach(type => {
+    const typeSpan$$ = document.createElement("p");
+    typeSpan$$.setAttribute("pokemon-types", type);
+    typeSpan$$.classList.add(type);
+    typeSpan$$.textContent = type;
+    div$$.appendChild(typeSpan$$);
+  })
+
+  container.appendChild(div$$)
+}
 
 const renderPokemons = (pokemons) => {
   pokedex$$.innerHTML = "";
@@ -64,23 +91,19 @@ const renderPokemons = (pokemons) => {
       id$$.textContent = "# " + poke.id;
     
       const img$$ = document.createElement('img');
-      img$$.src = poke.sprites.front_default;
+      img$$.src = poke.image;
       img$$.alt = poke.name;
     
       const p$$ = document.createElement('p');
       p$$.classList.add('card-title');
       p$$.textContent = poke.name;
-      
-      const div$$ = document.createElement('div');
-      div$$.classList.add('card-subtitle');
-      div$$.textContent = poke.types[0].type.name;
-      
+
       li$$.appendChild(id$$);
       li$$.appendChild(p$$);
-      li$$.appendChild(div$$);
+      renderTypes(poke.types, li$$);
       li$$.appendChild(img$$);
-      li$$.classList.add (poke.types[0].type.name);
-    
+      li$$.classList.add (poke.types[0]);
+
       pokedex$$.appendChild(li$$);
     };
 }
