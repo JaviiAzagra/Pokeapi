@@ -35,13 +35,13 @@ const renderSearch = (pokemons) => {
   box$$.appendChild(divFinder$$);
 };
 
-const toFind = (event) => {
-  const inputValue = event.target.value.toLowerCase();
+const search = (event) => {
+  const input = event.target.value.toLowerCase();
   FILTERED_POKEMONS = ALL_POKEMONS_INFO.filter((poke) => {
-    const Name = poke.name.toLowerCase().includes(inputValue);
-    const Type = poke.types[0].type.name.toLowerCase().includes(inputValue);
-    const Id = poke.id === Number(inputValue)
-    return Name || Id || Type
+    const Name = poke.name.toLowerCase().includes(input);
+    const Type = poke.types[0].type.name.toLowerCase().includes(input);
+    const Id = poke.id === Number(input)
+    return Name || Type || Id
   });
   renderPokemons(FILTERED_POKEMONS);
 };
@@ -106,7 +106,7 @@ async function arrancar() {
   renderPokemons(ALL_POKEMONS_INFO);
   renderSearch(ALL_POKEMONS_INFO);
 
-  input$$.addEventListener("input", () => toFind(event));
+  input$$.addEventListener("input", () => search(event));
 }
 
 window.onload = arrancar;
