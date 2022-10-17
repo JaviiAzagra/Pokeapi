@@ -1,0 +1,242 @@
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+
+body {
+  background-color: rgb(89, 89, 89);
+  margin: 0;
+  font-family: rubik;
+  color: white;
+}
+.container {
+  padding: 100px;
+  margin: 0 auto;
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 54px;
+  font-family: 'Pokemon Solid', sans-serif;
+  font-size: 40px;
+  color: gold;
+  letter-spacing: 5px;
+  margin-top: -100px;
+}
+.card {
+  list-style: none;
+  padding: 30px;
+  /* background-color: rgb(89, 89, 89); */
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-bottom-color: gold;
+  border-top-color: gold;
+  box-shadow: 2px 2px 20px;
+  
+  
+}
+.card-title {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 1px;
+  font-weight: bold;
+  color: white;
+}
+.card-subtitle {
+  text-transform: uppercase;
+  color: black;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.card-image {
+  height: 180px;
+}
+
+#pokedex {
+  padding-inline-start: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+.card:hover{
+  animation: bounce 0.5s linear;
+  text-shadow: 0 0 30px #fff; 
+  box-shadow: 0 0 20px gold;
+}
+
+@keyframes bounce {
+  20% {
+    transform: translateY(-6px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+  80% {
+    transform: translateY(-0px);
+  }
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  margin-left: -22px;
+  margin-bottom: 250px;
+}
+
+li {
+  border-radius: 16px;
+  height: 255px;
+  width: 155px;
+
+}
+
+.filtroTipos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
+
+.filtroTipos img  {
+  width: 50px;
+  height: 50px; 
+  margin-bottom: 40px;
+  border-radius: 50px;
+}
+
+.filtroTipos img:hover {
+  animation: bounce 0.5s linear;
+  text-shadow: 0 0 30px #fff; 
+  box-shadow: 0 0 20px gold;
+}
+
+.id {
+  color: black;
+  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
+  width: 60px;
+  height: 25px;
+  margin-left: -30px;
+  border-bottom-right-radius: 16px;
+  border-top-left-radius: 11px;
+  border-color: gold;
+  background-color: gold;
+  text-align: center;
+  border-color: black;
+}
+
+
+.search {
+  color: white;
+  margin-bottom: 40px;
+}
+
+.search input {
+  border-color: black;
+  border-radius: 16px;
+  text-decoration: none;
+}
+
+.normal{
+  background-color: #abaa91;
+}
+
+.fire{
+  background-color: #eca167 ;
+}
+
+.water{
+  background-color:#99b3eb;
+}
+
+.electric {
+  background-color: #f4e091
+} 
+
+
+.grass {
+  background-color: #9fbb8f
+}
+
+.ice{
+  background-color: #bcd8d6
+} 
+
+.fighting{
+  background-color:#bc6b69
+}
+
+.poison{
+  background-color:#c8adc8
+} 
+
+.ground{
+  background-color:#e0cd9b
+} 
+
+.flying{
+  background-color:#ccc2e6
+} 
+
+.psychic {
+  background-color: #e899b0
+}
+
+.bug {
+  background-color:#c8cda3
+}
+.rock{
+  background-color:#b4ad89
+}
+.ghost{
+  background-color:#9282a6
+}
+
+.dragon{
+  background-color:#a083eb
+}
+.dark{
+  background-color:#705746
+}
+.steel{
+  background-color:#B7B7CE
+}
+.fairy {
+  background-color: #D685AD ;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.box input {
+  height: 30px;
+  width: 400px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  outline:0;
+  border: solid 1px black;
+}
+
+::placeholder {
+  color: grey;
+  text-align: center;
+}
+
+input[type=text] {
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+  font-family: Pokemon Solid, rubik;
+}
