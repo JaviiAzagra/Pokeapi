@@ -1,10 +1,24 @@
 @import url('http://fonts.cdnfonts.com/css/pokemon-solid');
 
 body {
-  background-color: rgb(89, 89, 89);
+  background-color: rgb(222, 244, 245);
   margin: 0;
   font-family: rubik;
   color: white;
+}
+
+.logo{
+  text-align: center;
+  background-color: #b5d0e7;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img{
+  width: 500px;
+  height: 200px;
 }
 .container {
   padding: 100px;
@@ -17,14 +31,32 @@ body {
   font-size: 54px;
   font-family: 'Pokemon Solid', sans-serif;
   font-size: 40px;
-  color: gold;
+  color: black;
   letter-spacing: 5px;
   margin-top: -100px;
 }
+
+
+.tipos{
+  display: flex;
+  justify-content: space-around;
+}
+
+.tipos button{
+  border-radius: 10px;
+  text-align: center;
+  border: solid 1px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  width: 80px;
+  height: 30px;
+  font-size: 15px;
+}
+
 .card {
   list-style: none;
   padding: 30px;
-  /* background-color: rgb(89, 89, 89); */
   color: black;
   text-align: center;
   margin-bottom: 20px;
@@ -33,8 +65,7 @@ body {
   border-bottom-color: gold;
   border-top-color: gold;
   box-shadow: 2px 2px 20px;
-  
-  
+    
 }
 .card-title {
   text-transform: uppercase;
@@ -63,7 +94,7 @@ body {
 .card:hover{
   animation: bounce 0.5s linear;
   text-shadow: 0 0 30px #fff; 
-  box-shadow: 0 0 20px gold;
+  box-shadow: 0 0 20px #003d72;
 }
 
 @keyframes bounce {
@@ -95,25 +126,6 @@ li {
 
 }
 
-.filtroTipos {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-
-}
-
-.filtroTipos img  {
-  width: 50px;
-  height: 50px; 
-  margin-bottom: 40px;
-  border-radius: 50px;
-}
-
-.filtroTipos img:hover {
-  animation: bounce 0.5s linear;
-  text-shadow: 0 0 30px #fff; 
-  box-shadow: 0 0 20px white;
-}
 
 .id {
   color: black;
@@ -159,67 +171,69 @@ li {
 }
 
 .electric {
-  background-color: #f4e091
+  background-color: #f4e091;
 } 
 
 
 .grass {
-  background-color: #9fbb8f
+  background-color: #9fbb8f;
 }
 
 .ice{
-  background-color: #bcd8d6
+  background-color: #bcd8d6;
 } 
 
 .fighting{
-  background-color:#bc6b69
+  background-color:#bc6b69;
 }
 
 .poison{
-  background-color:#c8adc8
+  background-color:#c8adc8;
 } 
 
 .ground{
-  background-color:#e0cd9b
+  background-color:#e0cd9b;
 } 
 
 .flying{
-  background-color:#ccc2e6
+  background-color:#ccc2e6;
 } 
 
 .psychic {
-  background-color: #e899b0
+  background-color: #e899b0;
 }
 
 .bug {
-  background-color:#c8cda3
+  background-color:#c8cda3;
 }
 .rock{
-  background-color:#b4ad89
+  background-color:#b4ad89;
 }
 .ghost{
-  background-color:#9282a6
+  background-color:#9282a6;
 }
 
 .dragon{
-  background-color:#a083eb
+  background-color:#a083eb;
 }
 .dark{
-  background-color:#705746
+  background-color:#705746;
 }
 .steel{
-  background-color:#B7B7CE
+  background-color:#B7B7CE;
 }
 .fairy {
   background-color: #D685AD ;
 }
 
-.box {
+.box-search {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
-.box input {
+.box-search input {
   height: 30px;
   width: 400px;
   border-radius: 16px;
@@ -253,8 +267,25 @@ input[type=text] {
   flex-direction: row;
   border-radius: 16px;
   margin-bottom: -1px;
-  width: 68px;
+  width: 80px;
   margin-right: 10px;
-  background-color: rgba(255, 255, 255, 0.178);
+/*   background-color: rgba(255, 255, 255, 0.178); */
   height: 30px;
+}
+
+.atrapar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.capturar {
+  border-radius: 16px;
+  text-decoration: none;
+  border: solid 1px black;
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  font-family: 'Pokemon Solid', sans-serif;
+  background-color: rgb(245, 150, 150);
 }

@@ -1,0 +1,55 @@
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+
+h1#pokemonName {
+    text-align: center;
+    color: black;
+    font-family: rubik;
+    text-transform: uppercase;
+}
+
+body {
+    background-color:white;
+    text-align: center;
+    font-family: 'ArcadeClassic';
+    font-weight: normal;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    background-color: aqua;
+    font-family: rubik;
+}
+
+#pokeball {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 60px;
+}
+
+#pokemonSprite {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.856);
+    border-radius: 16px;
+}
+
+p {
+    color: black;
+}
+
+#type{
+    text-transform: uppercase;
+}
+
+.capturar {
+    border-radius: 16px;
+    text-decoration: none;
+    border: solid 1px black;
+    width: 500px;
+    height: 60px;
+    text-align: center;
+    font-family: 'Pokemon Solid', sans-serif;
+    background-color: rgb(245, 150, 150);
+  }
