@@ -1,13 +1,15 @@
 const pokedex$$ = document.querySelector('#pokedex');
 const ALL_POKEMONS_INFO = []; // Cuando una variable se declara en scope global para ser usada por otros, se hace en mayúsculas.
 let FILTER = [];
-const searchInput$$ = document.querySelector(".tipos");
+
+
 
 function getAllPokemons() {
   return fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
     .then((response) => response.json())
     .then((response) => response.results)
 }
+
 
 const getOnePokemon = async (url) => {
   try {
@@ -27,46 +29,54 @@ const getOnePokemon = async (url) => {
   }
 };
 
+
 //Mostrar el segundo typo del pokemon
 const renderTypes = (type, container) => {
+
   const div$$ = document.createElement("div");
   div$$.classList.add("card-subtitle");
 
   type.forEach((type) => {
-    const typeSpan$$ = document.createElement("p");
-    typeSpan$$.setAttribute("pokemon-types", type);
-    typeSpan$$.classList.add(type);
-    typeSpan$$.textContent = type;
+
+    const typename$$ = document.createElement("p");
+    typename$$.setAttribute("pokemon-types", type);
+    typename$$.classList.add(type);
+    typename$$.textContent = type;
     
-    div$$.appendChild(typeSpan$$);
+    div$$.appendChild(typename$$);
   })
 
   container.appendChild(div$$)
 }
 
 const renderPokemons = (pokemons) => {
+
   pokedex$$.innerHTML = "";
-    for (const poke of pokemons) {
+
+    for (const pokemon of pokemons) {
+
       const li$$ = document.createElement('li');
       li$$.classList.add('card');
 
       const id$$ = document.createElement("h3");
       id$$.classList.add("id");
-      id$$.textContent = "# " + poke.id;
+      id$$.textContent = "# " + pokemon.id;
     
       const img$$ = document.createElement('img');
-      img$$.src = poke.image;
-      img$$.alt = poke.name;
+      img$$.src = pokemon.image;
+      img$$.alt = pokemon.name;
     
       const p$$ = document.createElement('p');
       p$$.classList.add('card-title');
-      p$$.textContent = poke.name;
+      p$$.textContent = pokemon.name;
 
       li$$.appendChild(id$$);
       li$$.appendChild(p$$);
-      renderTypes(poke.types, li$$);
+      renderTypes(pokemon.types, li$$);
       li$$.appendChild(img$$);
-      li$$.classList.add (poke.types[0]);
+
+      li$$.classList.add (pokemon.types[0]);
+
       pokedex$$.appendChild(li$$);
     };
 }
@@ -75,27 +85,31 @@ const renderPokemons = (pokemons) => {
 //Buscador
 
 const search = (event) => {
+
   const busqueda = event.target.value;
-  FILTER = ALL_POKEMONS_INFO.filter((poke) => {
-    const Name = poke.name.includes(busqueda);
-    const Type = poke.types.includes(busqueda);
-    const Id = poke.id === Number(busqueda)
+  FILTER = ALL_POKEMONS_INFO.filter((pokemon) => {
+
+    const Name = pokemon.name.includes(busqueda);
+    const Type = pokemon.types.includes(busqueda);
+    const Id = pokemon.id === Number(busqueda)
+
     return Name || Type || Id
   });
+
   renderPokemons(FILTER);
+  console.log(FILTER);
+
 };
 
+addEventListener("input", () => search(event));
 
-// Director de orquesta: irá llamando a otras funciones.
+
+//Llamando a otras funciones.
 async function arrancar() {
-  console.log('Ejecuntando peticiones pokedex...');
 
-  const allPokemons = await getAllPokemons(); // array de objetos con name y url por cada pokemon
-  
-  // Itero por el array de pokemons, llamo a getOnePokemon una vez
-  // por cada pokemon, pasándole la url de cada pokemon.
+  const allPokemons = await getAllPokemons(); 
   for(const pokemon of allPokemons) { 
-    // Pido a la api la información de cada pokemon individual y la guardo en una variable
+    // Pido a la api la información
     const pokemonIndividualInfo = await getOnePokemon(pokemon.url);
     ALL_POKEMONS_INFO.push(pokemonIndividualInfo);
     FILTER.push(pokemonIndividualInfo);
@@ -105,7 +119,6 @@ async function arrancar() {
 
   renderPokemons(ALL_POKEMONS_INFO);
 
-  addEventListener("input", () => search(event));
 }
 
 window.onload = arrancar;
